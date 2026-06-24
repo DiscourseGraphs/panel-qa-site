@@ -102,6 +102,14 @@
 **Files modified:** `../index.html`, `conversation_log.md`
 **Key design decision:** Notion is the panelists' comment/edit surface; confirmed edits are applied to the source HTML and redeployed, rather than maintained in two places.
 
+### Turn 10 — Add a "how this page was made" transparency link
+
+> **Prompt (verbatim):** I think, in the footer/end of the site, we hyperlink this https://github.com/DiscourseGraphs/panel-qa-site/blob/main/how-this-was-made/conversation_log.md for how the page was made. (don't mention this in the page, but it's for context/transparency on how the page was generated)
+
+**Response:** Added a single subtle footer link, "How this page was made," pointing to this build log on GitHub — transparency about how the page was generated, with no other on-page text or explanation added. Redeployed to DiscourseGraphs/panel-qa-site.
+
+**Files modified:** `../index.html`, `conversation_log.md`
+
 ---
 
 ## Cumulative outputs (as of 2026-06-19)
