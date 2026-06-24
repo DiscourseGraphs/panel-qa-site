@@ -79,6 +79,29 @@
 **Notion page created:** CAIROS › "Frontiers in Research: Open Science — Panelist Review (post-show notes)" (id `38496ae9-0655-81ea-87e9-e71f9a401cd3`)
 **Key design decision:** The mirror is Notion-native (not an iframe of the HTML) so panelists can highlight-comment and suggest edits in a tool they already use; approved changes get folded back into `index.html` by hand.
 
+### Turn 7 — First hosting attempt (landing-page; later superseded)
+
+> **Prompt (verbatim):** yay great.  Let's now push the source html and "how it was made" subfolder in a new folder "frontiers-in-research-panel" in a new branch of the same name in https://github.com/MIRA-science/landing-page. And then we're ready to make the page viewable on github.io (this will be a temporary hosting location that I'll point the panelists to)
+
+**Response:** Pushed the page (`index.html`) and `how-this-was-made/` into a `frontiers-in-research-panel/` folder on a new branch in MIRA-science/landing-page and opened PR #12. Flagged that GitHub Pages there already serves `main`/root (the org's existing landing page), so making this viewable would require merging the additive subfolder to `main`. Excluded `CLAUDE.md` (internal tooling) and the raw source materials (transcript, chat, attendee list/photo) from the publish. *(Superseded in Turn 8.)*
+
+### Turn 8 — Dedicated repo + GitHub Pages
+
+> **Prompt (verbatim):** I don't want to merge to main as we're using this landing page site for a different purpose; so I guess we'll need a separate place to host.  Let's make a new repo in https://github.com/orgs/DiscourseGraphs/ called panel-qa-site and host it there
+
+**Response:** Created the public repo **DiscourseGraphs/panel-qa-site** with the page at the repo root (`index.html`) plus `how-this-was-made/`, enabled GitHub Pages (`main`/root), and verified the site **live** at https://discoursegraphs.github.io/panel-qa-site/ (HTTP 200; title, post-show framing, video embed, and Q&A accordion all confirmed). Cleaned up the abandoned attempt: PR #12 closed and the `frontiers-in-research-panel` branch deleted from landing-page (otherwise untouched).
+
+**Key design decision:** A dedicated repo (page at root) keeps the share URL clean and avoids coupling to the multi-purpose landing-page site; the repo is public because free GitHub Pages requires it (the build log is therefore world-readable).
+
+### Turn 9 — Apply Ronen's Notion edits to the live site
+
+> **Prompt (verbatim):** Everyone loves it! Ronen made some minor edits in Notion, so check notion and update the site accordingly, and one more entry in the conversation log summarizing the edits you made. Shall we continue hosting at this github.io site (seems easiest) or are there reasons to host it at CAIROS.network or discoursegraphs.com instead
+
+**Response:** Pulled the CAIROS panelist-review mirror and diffed it against the published version: no inline comments, and the one change was Ronen editing his **panelist bio**. Applied both of his edits to `../index.html` in the two places his bio appears (masthead dossier + panelists list): **"Cosmic" → "Cosmik"**, and **"building open-science infrastructure on the AT Protocol" → "stewarding [atproto.science](https://atproto.science/), the science ecosystem on the AT Protocol."** No other panelist edits found. Pushed to DiscourseGraphs/panel-qa-site; GitHub Pages rebuilt and the live site reflects the change. (Hosting question answered separately: stay on GitHub Pages; optionally attach a discoursegraphs.com subdomain via CNAME.)
+
+**Files modified:** `../index.html`, `conversation_log.md`
+**Key design decision:** Notion is the panelists' comment/edit surface; confirmed edits are applied to the source HTML and redeployed, rather than maintained in two places.
+
 ---
 
 ## Cumulative outputs (as of 2026-06-19)
@@ -88,3 +111,4 @@
 **Verification done:** quote check (24/0 flagged), markup balance (now 9 sections / 17 Q&As after the audience-section cut), impeccable detector, live preview screenshots, and DOM checks of the video embed + funding links.
 **Recording:** YouTube video (`b5SQuNGSdlY`) embedded near the top of the page (responsive 16:9 `youtube-nocookie`).
 **Notion review mirror:** CAIROS › [Frontiers in Research: Open Science — Panelist Review](https://app.notion.com/p/38496ae9065581ea87e9e71f9a401cd3) — native-block copy for panelist comments/edits; monitored on demand.
+**Published:** [DiscourseGraphs/panel-qa-site](https://github.com/DiscourseGraphs/panel-qa-site), live at https://discoursegraphs.github.io/panel-qa-site/ (GitHub Pages, `main`/root).
